@@ -15,7 +15,7 @@
 playGame();
 
 function playGame() {
-    console.log("Welcome to the Rock Paper Scissors game.");
+    alert("Welcome to the Rock Paper Scissors game.");
 
     let humanScore = 0;
     let computerScore = 0;
@@ -23,19 +23,18 @@ function playGame() {
     let computerChoice = 0;
     let i = 0;
     while (i < 5) {
-        console.log(`Lets start Round No. ${i+1}`);
+        alert(`Lets start Round No. ${i+1}`);
         humanChoice = getHumanChoice();
 
         if (humanChoice == null) {
-            console.log("Exiting the game as no choice provided.");
+            console.log("Exited the game as no choice provided.");
             return;
         }
 
         computerChoice = getComputerChoice();
 
         try {
-            console.log(`Human picked: ${convertChoice(humanChoice)}`);
-            console.log(`Computer picked: ${convertChoice(computerChoice)}`);
+            alert(`Human picked: ${convertChoice(humanChoice)}\nComputer picked: ${convertChoice(computerChoice)}`);
         } catch(err) {
             console.error(err.message);
             return;
@@ -45,29 +44,29 @@ function playGame() {
 
         if (result == 1 || result == -2) {
             ++humanScore;
-            console.log(`Congratulations, You won this round.\nScores are:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+            alert(`Congratulations, You won this round.\nScores are:\nYou: ${humanScore}\nComputer: ${computerScore}`);
         }
         else if (result == -1 || result == 2) {
             ++computerScore;
-            console.log(`Oh man, Computer won this round.\nBetter luck next time!\nScores are:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+            alert(`Oh man, Computer won this round.\nBetter luck next time!\nScores are:\nYou: ${humanScore}\nComputer: ${computerScore}`);
         }
         else {
-            console.log(`Its a draw.\nScores are:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+            alert(`Its a draw.\nScores are:\nYou: ${humanScore}\nComputer: ${computerScore}`);
         }
 
         i++;
     }
 
-    console.log("All rounds are now completed!");
+    alert("All rounds are now completed!");
 
     if (humanScore > computerScore) {
-        console.log(`Congratulations, Seems like you have good luck. You won this battle. Final scores were:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+        alert(`Congratulations, Seems like you have good luck. You won this battle. Final scores were:\nYou: ${humanScore}\nComputer: ${computerScore}`);
     }
     else if (computerScore > humanScore) {
-        console.log(`It seems the god of fortune did not favor you this time. You lost this battle. Final scores were:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+        alert(`It seems the god of fortune did not favor you this time. You lost this battle. Final scores were:\nYou: ${humanScore}\nComputer: ${computerScore}`);
     }
     else {
-        console.log(`Well Played, This battle of lucks was even. Maybe you will get an upper hand in the next one. Final scores were:\nYou: ${humanScore}\nComputer: ${computerScore}\n\n\n Type "playGame()" in console and press enter to play again.`);
+        alert(`Well Played, This battle of lucks was even. Maybe you will get an upper hand in the next one. Final scores were:\nYou: ${humanScore}\nComputer: ${computerScore}\n\n\n Type "playGame()" in console and press enter to play again.`);
     }
 }
 
@@ -84,7 +83,7 @@ function getHumanChoice() {
 
         choice = parseInt(choice);
         if (choice !== 1 && choice !== 2 && choice !== 3) {
-            console.log("Please only provide the numbers 1 or 2 or 3 as your input as stated. Lets try again.");
+            alert("Please only provide the numbers 1 or 2 or 3 as your input as stated. Lets try again.");
             continue;
         }
 
